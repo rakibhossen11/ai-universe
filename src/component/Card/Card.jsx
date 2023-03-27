@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Button from "../Button/Button";
+import Modal from "../Modal/Modal";
 import SingleData from "../SingleData/SingleData";
 
 const Card = () => {
@@ -36,6 +37,7 @@ const Card = () => {
       (<span onClick={handleShowAll}>
         <Button>See More</Button>
       </span>)}
+      <Modal />
     </>
   );
 };

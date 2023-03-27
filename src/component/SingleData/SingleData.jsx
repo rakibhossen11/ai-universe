@@ -40,7 +40,7 @@ const SingleData = (props) => {
               <p>{published_in}</p>
             </div>
             <div>
-              <span className="cursor-pointer">
+              <label htmlFor="my-modal-5" className="cursor-pointer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -55,7 +55,8 @@ const SingleData = (props) => {
                     d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
                   />
                 </svg>
-              </span>
+              </label>
+              
             </div>
           </div>
         </div>
