@@ -8,7 +8,6 @@ const App = () => {
   return (
     <>
       <Header/>
-      <Button>Sort by Date</Button>
       <Card />
     </>
   );

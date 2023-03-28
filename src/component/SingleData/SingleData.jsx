@@ -2,7 +2,7 @@ import React from "react";
 
 const SingleData = (props) => {
   //   console.log(props.singleData);
-  const {id, image, features, published_in, name} = props.singleData;
+  const {id, image, features, published_in, name} = props?.singleData;
   // console.log(features);
   return (
     <div>
@@ -12,7 +12,7 @@ const SingleData = (props) => {
         </figure>
         <div className="card-body">
           <h2 className="card-title">Features</h2>
-          {features.map((feature, index) => (
+          {features?.map((feature, index) => (
             <p>
               {index + 1}. {feature}
             </p>
@@ -41,7 +41,7 @@ const SingleData = (props) => {
             </div>
             <div>
               <label 
-              onClick={() => props.setUniqueId(id)} 
+              onClick={() => props?.setUniqueId(id)} 
               htmlFor="my-modal-5" 
               className="cursor-pointer">
                 <svg
