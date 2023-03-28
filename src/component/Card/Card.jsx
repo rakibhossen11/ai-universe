@@ -6,10 +6,21 @@ import SingleData from "../SingleData/SingleData";
 const Card = () => {
 
     const [data, setData] = useState([]);
+    const [singleData, setSingleData] = useState({});
     const [showAll,setShowAll] = useState(false);
+    const [uniqueId, setUniqueId] = useState(null);
+    
     const handleShowAll = () =>{
       setShowAll(true);
     }
+
+    useEffect(() =>{
+      // console.log('hello from useEffect');
+      fetch(`https://openapi.programming-hero.com/api/ai/tool/${uniqueId}`)
+      .then(res => res.json())
+      .then(data => setSingleData(data.data))
+    },[uniqueId])
+    // console.log(singleData);
   
     useEffect(() => {
       const loadData = async () => {
@@ -30,14 +41,18 @@ const Card = () => {
           // console.log(singleData);
           return <SingleData singleData={singleData} />;
         })} */}
-        {data.slice(0, showAll ? 12 : 6).map((singleData) => <SingleData singleData={singleData} key={singleData.id}/>)
+        {data.slice(0, showAll ? 12 : 6).map((singleData) => <SingleData 
+        singleData={singleData}
+        key={singleData.id}
+        setUniqueId={setUniqueId}
+        />)
         }
       </div>
       {!showAll && 
       (<span onClick={handleShowAll}>
         <Button>See More</Button>
       </span>)}
-      <Modal />
+      <Modal singleData={singleData}/>
     </>
   );
 };
